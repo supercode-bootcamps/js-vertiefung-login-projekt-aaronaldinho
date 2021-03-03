@@ -9,11 +9,8 @@
 </head>
 <!-- Image and text -->
 
-
 <body>
-
     <header>
-
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -25,29 +22,38 @@
             </div>
         </nav>
     </header>
-    <article>
-        <img src="/login_form/js-vertiefung-login-projekt-aaronaldinho/assets/img/Illustration.png" alt="">
+    <article id="main-article">
+        <div id="img-article">
+            <img id="imagen-man" src="assets/img/Illustration.png">
+        </div>
+        <div id=" right-article ">
+            <h2>Top Secret</h2>
+            <p>You may not click the button</p>
+            <button>>Secret Content</button>
+
+        </div>
     </article>
 
-    <form id="hidden">
+    <form id=" hidden ">
         <h2>LOGIN</h2>
-        <div class="mb-3">
-            <label for="exampleInputAdmin" class="form-label"></label>
-            <input type="text" class="form-control" id="exampleInputAdmin" placeholder="USERNAME">
+        <div class=" mb-3 ">
+            <label for=" exampleInputAdmin" class=" form-label "></label>
+            <input type=" text " class=" form-control " id=" exampleInputAdmin " placeholder=" USERNAME ">
 
         </div>
-        <div class="mb-4">
-            <label for="exampleInputPassword1" class="form-label"></label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="PASSWORD">
+        <div class=" mb-4 ">
+            <label for=" exampleInputPassword1 " class=" form-label "></label>
+            <input type=" password " class=" form-control " id=" exampleInputPassword1 " placeholder=" PASSWORD ">
         </div>
 
-        <button type="submit" class="btn-primary">Submit</button>
+        <button type=" submit " class=" btn-primary ">Submit</button>
     </form>
-    <script src="assets/js/main.js"></script>
-    <!-- <div class="info">
-        When the user accesses the page he sees a login form (see attachment) Behind the login form is the "protected" page Only after entering a valid name-password-combination the form disappears. Afterwards the content behind the form becomes visible (the
+    <script src=" assets/js/main.js "></script>
+    <!-- <div class=" info ">
+        When the user accesses the page he sees a login form (see attachment) Behind the login form is the "
+                protected " page Only after entering a valid name-password-combination the form disappears. Afterwards the content behind the form becomes visible (the
         page will not be left). Password is case-sensitive. Username is not. The query whether a password is valid is done via JavaScript There is an array with valid name-password combinations (see comment) The name of the currently logged in user is
-        displayed on the page If the login is successful, a cookie is set If the cookie is set, the user should not have to log in again A click on the "Logout" button removes the cookie. Page is exited. How to set and read cookies => https://www.w3schools.com/js/js_cookies.asp
+        displayed on the page If the login is successful, a cookie is set If the cookie is set, the user should not have to log in again A click on the " Logout " button removes the cookie. Page is exited. How to set and read cookies => https://www.w3schools.com/js/js_cookies.asp
         The HTML is predefined and must not (but can) be changed Is the site really secure? No! As you surely know, the login form or the overlay could be easily removed via the developer console. Simply securing the site exclusively via the frontend
         is not secure in practice. In the real world, the content would only be reloaded from the server after the server has verified the correct login. Also, storing passwords publicly and unencrypted in JavaScript variables is not a common practice.
         This is just a simplified example of authentication! ;-) You can find the assets (font, colors, image...) in the Figma document: https://www.figma.com/file/HTKJ4lFdTj2MBaJuD6uicH/topsecret

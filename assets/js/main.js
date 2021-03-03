@@ -18,21 +18,20 @@ buttonSubmit.addEventListener('click', (e) => {
     e.preventDefault();
 
     let foundUser = USERS.find(item => item.name === inputAdmin.value && item.secret === inputPassword.value);
-    let insertUser = USERS.find(item => item.name === null && item.secret === '');
 
-    // if (inputAdmin.value == null || inputAdmin.value == "") {
-    //     alert("Please enter the username.");
-    //     return false;
-    // }
-    // if (foundUser == null || foundUser == "") {
-    //     alert("Please enter the password.");
-    //     return false;
-    // }
+
+    if (inputAdmin.value == null || inputAdmin.value == "") {
+        alert("Please enter the username.");
+        return false;
+    }
+    if (foundUser == null || foundUser == "") {
+        alert("Please enter the password.");
+        return false;
+    }
     if (foundUser) {
-        alert('bien hecho')
-            // hiddenForm.remove()
+        hiddenForm.remove()
     } else {
-        (insertUser)
+
     }
 
 });
@@ -58,29 +57,31 @@ buttonSubmit.addEventListener('click', (e) => {
 //     }
 // });
 
-// document.getElementById('verTodas').addEventListener('click', seeAll);
-// document.getElementById('crearCookie1').addEventListener('click', createCookie);
-// document.getElementById('crearCookie2').addEventListener('click', createCookie);
-// document.getElementById('borrarCookie1').addEventListener('click', deleteCookie);
-// document.getElementById('borrarCookie2').addEventListener('click', deleteCookie);
+document.getElementById('verTodas').addEventListener('click', seeAll);
+document.getElementById('crearCookie1').addEventListener('click', createCookie);
+document.getElementById('crearCookie2').addEventListener('click', createCookie);
+document.getElementById('borrarCookie1').addEventListener('click', deleteCookie);
+document.getElementById('borrarCookie2').addEventListener('click', deleteCookie);
 
 
-// function seeAll() {
-//     alert(document.cookie);
-// }
+function seeAll() {
+    alert(document.cookie);
+}
 
-// function createCookie(e) {
-//     if (!e) e = window.event;
-//     if (e.target.id == 'crearCookie1')
-//         document.cookie = 'name = Aaron';
-//     else if (e.target.id == 'crearCookie2')
-//         document.cookie = 'lastname = Espinoza';
-// }
+function createCookie(e) {
+    if (!e) e = window.event;
+    if (e.target.id == 'crearCookie1')
+        document.cookie = 'name = Aaron';
+    else if (e.target.id == 'crearCookie2')
+        document.cookie = 'lastname = Espinoza';
+}
 
-// function deleteCookie(e) {
-//     if (!e) e = window.event;
-//     if (e.target.id == 'borrarCookie1')
-//         document.cookie = 'name = ;expires=Thu,01 Jan 1970 00:00:00 UTC;';
-//     else if (e.target.id == 'borrarCookie2')
-//         document.cookie = 'lastname = ;expires=Thu,01 Jan 1970 00:00:00 UTC;';
-//
+function deleteCookie(e) {
+    if (!e) e = window.event;
+    if (e.target.id == 'borrarCookie1')
+        document.cookie = 'name = ;expires=Thu,01 Jan 1970 00:00:00 UTC;';
+    else if (e.target.id == 'borrarCookie2')
+        document.cookie = 'lastname = ;expires=Thu,01 Jan 1970 00:00:00 UTC;';
+}
+
+document.cookie = 'name = newCookie';
