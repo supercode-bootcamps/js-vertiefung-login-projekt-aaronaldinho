@@ -34,24 +34,35 @@
         </div>
     </article>
 
-    <form id=" hidden ">
-        <h2>LOGIN</h2>
-        <div class=" mb-3 ">
-            <label for=" exampleInputAdmin" class=" form-label "></label>
-            <input type=" text " class=" form-control " id=" exampleInputAdmin " placeholder=" USERNAME ">
+    <form id="hidden">
+        <h2> > LOGIN</h2>
+        <div class="mb-3">
+            <label for="exampleInputAdmin" class=" form-label "></label>
+            <input type="text" class="form-control" id="exampleInputAdmin" placeholder=" USERNAME ">
 
         </div>
-        <div class=" mb-4 ">
-            <label for=" exampleInputPassword1 " class=" form-label "></label>
-            <input type=" password " class=" form-control " id=" exampleInputPassword1 " placeholder=" PASSWORD ">
+        <div class="mb-4">
+            <label for="exampleInputPassword1" class="form-label"></label>
+            <input type="password" class=" form-control" id="exampleInputPassword1" placeholder=" PASSWORD ">
+        </div>
+        <div class="mb-5">
+            <label for="exampleInputPassword1" class="form-label"></label>
+            <input type="password" class=" form-control" id="exampleInputColor" placeholder=" SECRET COLOR ">
         </div>
 
-        <button type=" submit " class=" btn-primary ">Submit</button>
+        <button type="submit" class="btn-primary">Submit</button>
     </form>
+
+    <div id="div-cookies">
+        <button type="button" id="verTodas">Ver todas las cookies</button>
+        <button type="button" id="crearCookie1">Crear cookie 1</button>
+        <button type="button" id="crearCookie2">Crear cookie 2</button>
+        <button type="button" id="borrarCookie1">Borrar cookie 1</button>
+        <button type="button" id="borrarCookie2">Borrar cookie 2</button>
+    </div>
     <script src=" assets/js/main.js "></script>
     <!-- <div class=" info ">
-        When the user accesses the page he sees a login form (see attachment) Behind the login form is the "
-                protected " page Only after entering a valid name-password-combination the form disappears. Afterwards the content behind the form becomes visible (the
+         Afterwards the content behind the form becomes visible (the
         page will not be left). Password is case-sensitive. Username is not. The query whether a password is valid is done via JavaScript There is an array with valid name-password combinations (see comment) The name of the currently logged in user is
         displayed on the page If the login is successful, a cookie is set If the cookie is set, the user should not have to log in again A click on the " Logout " button removes the cookie. Page is exited. How to set and read cookies => https://www.w3schools.com/js/js_cookies.asp
         The HTML is predefined and must not (but can) be changed Is the site really secure? No! As you surely know, the login form or the overlay could be easily removed via the developer console. Simply securing the site exclusively via the frontend

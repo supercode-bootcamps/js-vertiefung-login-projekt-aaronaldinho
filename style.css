@@ -41,7 +41,7 @@ a {
 }
 
 .container-fluid {
-  height: 100px;
+  height: 200px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -54,26 +54,35 @@ h2 {
   margin: 10px;
 }
 
-#exampleInputAdmin {
+#exampleInputAdmin,
+#exampleInputPassword1,
+#exampleInputColor {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
-  height: 60px;
-  padding: 5px;
+  height: 40px;
+  margin: 5px;
 }
 
-.mb-4 {
+#hidden > div {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 60px;
+  align-items: left;
 }
 
 .btn-primary {
   height: 40px;
+  padding: 5px;
   width: 50%;
+  border-radius: 5px;
+  box-shadow: 4px 4px;
+}
+
+.btn-primary:hover {
+  background-color: cornflowerblue;
+  transition: ease-in 1s;
 }
 
 form {
@@ -89,6 +98,7 @@ form {
   width: 50%;
   height: 300px;
   z-index: 99;
+  visibility: visible;
 }
 
 article {
@@ -112,9 +122,30 @@ article > div {
   border: 1px red solid;
 }
 
+#div-cookies {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#div-cookies > button {
+  background-color: chartreuse;
+  width: 30%;
+  height: 3em;
+}
+
 .info {
   justify-content: center;
   align-items: center;
   font-size: 24px;
+}
+
+.item {
+  background-color: red;
+  border: 2px solid blue;
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+  /* transition-duration: 0.5; */
 }
 /*# sourceMappingURL=style.css.map */

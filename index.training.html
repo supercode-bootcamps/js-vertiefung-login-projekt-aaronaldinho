@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>Hola</div>
+    <button id="button">press</button>
+    <input type="text" id="inputadmin">
+    <input type="text" id="inputcity">
+    <script>
+        const objectArray = [{
+            name: 'John',
+            city: 'NY',
+            age: 30,
+        }, {
+            name: 'Jane',
+            city: 'Berlin',
+            age: 30,
+        }];
+
+
+
+        const inputName = document.getElementById('inputadmin');
+        const inputCity = document.getElementById('inputcity');
+
+        const buttonSubmit = document.getElementById('button');
+        buttonSubmit.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            let foundUser = objectArray.find(all => all.name === inputName.value && all.city === inputCity.value); // { name: 'John', city: 'NY', age: 30 }
+            console.log(foundUser.name + ' lives in ' + foundUser.city);
+
+        })
+
+        // if (foundUser === item.name.value && foundUser === item.city.value && foundUser === item.age.value) {
+        //     document.style.display = 'none';
+        // }
+
+
+        /* ============ FOR EACH ============ */
+
+        let user;
+
+        objectArray.forEach(item => {
+            if (item.name === inputName) {
+                user = item;
+            }
+        });
+
+        user; // { name: 'John', city: 'NY', age: 30 }
+
+        if (user) {
+            console.log(user.name + ' lives in ' + user.city);
+        }
+
+        /* ============ FILTER ============ */
+
+        const filtered = objectArray.filter(item => item.name === inputName);
+
+        filtered; // [ { name: 'John', city: 'NY', age: 30 } ]
+        filtered[0]; // { name: 'John', city: 'NY', age: 30 }
+
+        if (filtered.length > 0) {
+            console.log(filtered[0].name + ' lives in ' + filtered[0].city);
+        }
+    </script>
+</body>
+
+</html>
