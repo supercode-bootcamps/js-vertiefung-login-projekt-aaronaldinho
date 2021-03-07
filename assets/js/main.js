@@ -39,13 +39,17 @@ buttonSubmit.addEventListener('click', (e) => {
 
     if (foundUser) {
         hiddenForm.style.visibility = 'hidden';
-        appearForm.innerHTML = 'good'
+        // appearForm.innerHTML = 'good'
 
     } else {
-        let hiddenForm = document.getElementById("hidden");
-        let newElement = document.createElement('p');
-        document.innerHTML.appendChild(newElement);
-        newElement.style.color = 'red';
+        hiddenForm.style.color = 'red'
+        const error = document.getElementById('error');
+        //--parentElement--//
+        // const problem = ['que haces', 'tu'];
+        error.innerHTML = `your log in is UNSUCESSFUL`;
+
+        ////---new List Element [<li> Banana </li>]--///
+
 
     }
     if (!foundUser) {

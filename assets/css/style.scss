@@ -218,27 +218,27 @@ article>div {
 }
 
 ///ERRROR FORM///
-.item {
-    border: 2px solid blue;
-    height: 50px;
-    width: 100%;
+#error {
+    height: 30px;
+    width: 60%;
     border-radius: 5px;
+    font-size: x-large;
     color: red;
+    margin: 5px;
     /* transition-duration: 0.5; */
 }
 
-#banner-message {
-    visibility: hidden;
-    background: #fff;
-    border-radius: 4px;
-    padding: 20px;
-    font-size: 25px;
-    text-align: center;
-    transition: all 0.2s;
-    margin: 0 auto;
-    width: 500px;
-}
-
-#breed_data {
-    visibility: hidden;
-}
+// #banner-message {
+//     visibility: hidden;
+//     background: #fff;
+//     border-radius: 4px;
+//     padding: 20px;
+//     font-size: 25px;
+//     text-align: center;
+//     transition: all 0.2s;
+//     margin: 0 auto;
+//     width: 500px;
+// }
+// #breed_data {
+//     visibility: hidden;
+// }
