@@ -12,28 +12,36 @@ const USERS = [{
     color: 'yellow'
 
 }, ];
+
+fetch('https://supercode-auth-demo.herokuapp.com/')
+    .then(response => response.json()) // 2
+    .then(console.log) // 3
+    .catch(console.log('Algo salió mal.'));
+
 const inputAdmin = document.getElementById('exampleInputAdmin');
 const inputPassword = document.getElementById('exampleInputPassword1')
-const inputColor = document.getElementById('exampleInputColor')
+
+const cookieValue = document.hiddenForm + ';';
+console.log(cookieValue)
+    // const inputColor = document.getElementById('exampleInputColor')
 
 let hiddenForm = document.getElementById("hidden");
 
-const buttonSubmit = document.querySelector('.btn-primary');
+const buttonSubmit = document.getElementById('btn-primary');
 buttonSubmit.addEventListener('click', (e) => {
     e.preventDefault();
 
     let foundUser = USERS.find(item => item.name === inputAdmin.value &&
-        item.secret === inputPassword.value && item.color === inputColor.value);
+        item.secret === inputPassword.value);
 
     if (foundUser) {
-        hiddenForm.style.transition = 'easy-in 0.5s'
         hiddenForm.style.visibility = 'hidden';
     } else {
-        let showError = document.createElement('div');
-        showError.id = '#item';
-        $('#hidden').append(showError);
-        hiddenForm.style.cssText = 'display: flex; justify-content: center; align-items: center'
-        hiddenForm.setAttribute('style', 'color:yellow;')
+        hiddenForm.style.color = 'red';
+
+    }
+    if (!foundUser) {
+        alert('incorrect')
     }
 
     if (foundUser == null || foundUser == "" && foundUser !== foundUser) {
@@ -42,9 +50,9 @@ buttonSubmit.addEventListener('click', (e) => {
     if (foundUser == null || foundUser == "") {
         alert("Please enter the password.");
     }
-    if (foundUser == null || foundUser == "") {
-        alert("Please enter the favorite color.");
-    }
+    // if (foundUser == null || foundUser == "") {
+    //     alert("Please enter the favorite color.");
+    // }
 });
 
 
@@ -71,29 +79,52 @@ buttonSubmit.addEventListener('click', (e) => {
 //     }
 // });
 
-// document.getElementById('verTodas').addEventListener('click', seeAll);
-// document.getElementById('crearCookie1').addEventListener('click', createCookie);
-// document.getElementById('crearCookie2').addEventListener('click', createCookie);
-// document.getElementById('borrarCookie1').addEventListener('click', deleteCookie);
-// document.getElementById('borrarCookie2').addEventListener('click', deleteCookie);
+///--- cookies ---///
+
+document.getElementById('verTodas').addEventListener('click', seeAll);
+
+///---createCookie---///
+document.getElementById('crearCookie1').addEventListener('click', createCookie);
+document.getElementById('crearCookie2').addEventListener('click', createCookie);
+
+///---LOG-OUT---///
+document.getElementById('logout').addEventListener('click', deleteCookie);
+document.getElementById('logout').addEventListener('click', deleteCookie);
 
 
-// function seeAll() {
-//     alert(document.cookie);
-// }
+function seeAll() {
+    alert(document.cookie);
+}
 
-// function createCookie(e) {
-//     if (!e) e = window.event;
-//     if (e.target.id == 'crearCookie1')
-//         document.cookie = 'name = Aaron';
-//     else if (e.target.id == 'crearCookie2')
-//         document.cookie = 'lastname = Espinoza';
-// }
 
-// function deleteCookie(e) {
-//     if (!e) e = window.event;
-//     if (e.target.id == 'borrarCookie1')
-//         document.cookie = 'name = ;expires=Thu,01 Jan 1970 00:00:00 UTC;';
-//     else if (e.target.id == 'borrarCookie2')
-//         document.cookie = 'lastname = ;expires=Thu,01 Jan 1970 00:00:00 UTC;';
-// }
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function createCookie(e) {
+    e.preventDefault()
+    setCookie('user', inputAdmin.value)
+    console.log('createCookie', inputAdmin.value)
+
+}
+
+function deleteCookie(e) {
+
+    document.cookie = 'user = ;expires=Thu,01 Jan 1970 00:00:00 UTC;';
+
+    console.log('deleteCookie');
+}
+
+// function saveTheCookie(value) {
+//     var today = new Date(); // Actual date
+//     var expire = new Date(); // Expiration of the cookie
+
+//     var cookie_name = "username_form"; // Name for the cookie to be recognized
+//     var number_of_days = 10; // Number of days for the cookie to be valid (10 in this case)
+
+//     expire.setTime(today.getTime() + 60 * 60 * 1000 * 24 * number_of_days); // Current time + (60 sec * 60 min * 1000 milisecs * 24 hours * number_of_days)
+
+//     document.cookie = cookie_name + "=" + escape(value) + "; expires=" + expire.toGMTString();

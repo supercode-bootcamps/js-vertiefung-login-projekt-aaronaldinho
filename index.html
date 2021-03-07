@@ -14,11 +14,18 @@
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="assets/img/eye.png" alt="" width="40" height="44" class="d-inline-block align-top"> Bootstrap
+                    <img src="assets/img/eye.png" id="eye" class="d-inline-block align-top">
                 </a>
             </div>
             <div>
-                <a type="button" id="logout" href="">log out</a>
+                <p hidden></p>
+            </div>
+            <div>
+                <h5>user </h5>
+            </div>
+
+            <div>
+                <a type="button" id="logout" href=""> >log out.</a>
             </div>
         </nav>
     </header>
@@ -26,11 +33,10 @@
         <div id="img-article">
             <img id="imagen-man" src="assets/img/Illustration.png">
         </div>
-        <div id=" right-article ">
+        <div id="right-article">
             <h2>Top Secret</h2>
             <p>You may not click the button</p>
             <button>>Secret Content</button>
-
         </div>
     </article>
 
@@ -45,20 +51,19 @@
             <label for="exampleInputPassword1" class="form-label"></label>
             <input type="password" class=" form-control" id="exampleInputPassword1" placeholder=" PASSWORD ">
         </div>
-        <div class="mb-5">
+        <!-- <div class="mb-5">
             <label for="exampleInputPassword1" class="form-label"></label>
             <input type="password" class=" form-control" id="exampleInputColor" placeholder=" SECRET COLOR ">
-        </div>
+        </div> -->
 
-        <button type="submit" class="btn-primary">Submit</button>
+        <button type="submit" id="btn-primary">Submit</button>
     </form>
 
     <div id="div-cookies">
         <button type="button" id="verTodas">Ver todas las cookies</button>
         <button type="button" id="crearCookie1">Crear cookie 1</button>
         <button type="button" id="crearCookie2">Crear cookie 2</button>
-        <button type="button" id="borrarCookie1">Borrar cookie 1</button>
-        <button type="button" id="borrarCookie2">Borrar cookie 2</button>
+        <button type="button" id="borrarCookie1" onclick="deleteCookie()">Borrar cookie 1</button>
     </div>
     <script src=" assets/js/main.js "></script>
     <!-- <div class=" info ">
@@ -67,7 +72,23 @@
         displayed on the page If the login is successful, a cookie is set If the cookie is set, the user should not have to log in again A click on the " Logout " button removes the cookie. Page is exited. How to set and read cookies => https://www.w3schools.com/js/js_cookies.asp
         The HTML is predefined and must not (but can) be changed Is the site really secure? No! As you surely know, the login form or the overlay could be easily removed via the developer console. Simply securing the site exclusively via the frontend
         is not secure in practice. In the real world, the content would only be reloaded from the server after the server has verified the correct login. Also, storing passwords publicly and unencrypted in JavaScript variables is not a common practice.
-        This is just a simplified example of authentication! ;-) You can find the assets (font, colors, image...) in the Figma document: https://www.figma.com/file/HTKJ4lFdTj2MBaJuD6uicH/topsecret
+        This is just a simplified example of authentication! ;-)
+    </div> -->
+
+    <!-- <div>
+Extensión de la API
+
+Actualmente sus datos de acceso se almacenan estáticamente en el JavaScript. ¡Esto no es seguro! Conecta con la API dada para que el inicio de sesión sea verificado por el lado del servidor.
+
+API: https://supercode-auth-demo.herokuapp.com/
+Utiliza el método fetch() para realizar la llamada a la api.
+Para la autenticación, no es necesario hacer un GET clásico (por defecto), sino una petición POST.
+
+Ejemplo:
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_json_data
+
+
+El cuerpo de la solicitud es un objeto JSON con las propiedades nombre y secreto.
     </div> -->
 
 </body>

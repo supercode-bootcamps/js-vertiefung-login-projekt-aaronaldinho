@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,65 +11,126 @@
 <body>
     <div>Hola</div>
     <button id="button">press</button>
-    <input type="text" id="inputadmin">
-    <input type="text" id="inputcity">
+    <input type="text" id="inputadmin"> //*---.value---*//
+    <input type="text" id="inputcity"> //*---.value---*//
+    <p id="result"></p>
+
+    <article>
+        <form>
+            <input type="text" value="Enter Your Nickname" id="nameBox" name='usrname'>
+            <input type="text" value="" id="nameBox2" name='usrname2'>
+            <input type="button" value="Go!" id="submit" onclick="putCookie(document.getElementsByTagName('form'));">
+        </form>
+    </article>
     <script>
-        const objectArray = [{
-            name: 'John',
-            city: 'NY',
-            age: 30,
-        }, {
-            name: 'Jane',
-            city: 'Berlin',
-            age: 30,
-        }];
+        ///---form_for_cookie----////
+        var today = new Date();
+        var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
 
-
-
-        const inputName = document.getElementById('inputadmin');
-        const inputCity = document.getElementById('inputcity');
-
-        const buttonSubmit = document.getElementById('button');
-        buttonSubmit.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            let foundUser = objectArray.find(all => all.name === inputName.value && all.city === inputCity.value); // { name: 'John', city: 'NY', age: 30 }
-            console.log(foundUser.name + ' lives in ' + foundUser.city);
-
-        })
-
-        // if (foundUser === item.name.value && foundUser === item.city.value && foundUser === item.age.value) {
-        //     document.style.display = 'none';
-        // }
-
-
-        /* ============ FOR EACH ============ */
-
-        let user;
-
-        objectArray.forEach(item => {
-            if (item.name === inputName) {
-                user = item;
-            }
-        });
-
-        user; // { name: 'John', city: 'NY', age: 30 }
-
-        if (user) {
-            console.log(user.name + ' lives in ' + user.city);
+        function setCookie(name, value) {
+            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
         }
+        const buttonSubCookies = document.querySelector('.btn-primary');
+        buttonSubCookies.addEventListener('click', (e) => {
+                    e.preventDefault();
 
-        /* ============ FILTER ============ */
+                    function putCookie(form)
+                    //this should set the UserName cookie to the proper value;
+                    {
+                        setCookie("userName", form[0].usrname.value && 'userName2', form[1].usrname2.value);
 
-        const filtered = objectArray.filter(item => item.name === inputName);
+                        return true;
+                    }
 
-        filtered; // [ { name: 'John', city: 'NY', age: 30 } ]
-        filtered[0]; // { name: 'John', city: 'NY', age: 30 }
 
-        if (filtered.length > 0) {
-            console.log(filtered[0].name + ' lives in ' + filtered[0].city);
-        }
+                    let showError = document.createElement('div');
+                    showError.id = '#item';
+                    // 
+                    // hiddenForm.style.cssText = 'display: flex; justify-content: center; align-items: center'
+                    // hiddenForm.setAttribute('style', 'color:yellow;')
+
+                    const objectArray = [{
+                        name: 'John',
+                        city: 'NY',
+                        age: 30,
+                    }, {
+                        name: 'Jane',
+                        city: 'Berlin',
+                        age: 30,
+                    }];
+
+
+
+                    const inputName = document.getElementById('inputadmin');
+                    const inputCity = document.getElementById('inputcity');
+
+                    const buttonSubmit = document.getElementById('button');
+                    buttonSubmit.addEventListener('click', (e) => {
+                        e.preventDefault();
+
+                        let foundUser = objectArray.find(all => all.name === inputName.value && all.city === inputCity.value); // { name: 'John', city: 'NY', age: 30 }
+                        console.log(foundUser.name + ' lives in ' + foundUser.city);
+
+                    })
+
+                    // if (foundUser === item.name.value && foundUser === item.city.value && foundUser === item.age.value) {
+                    //     document.style.display = 'none';
+                    // }
+
+
+                    /* ============ FOR EACH ============ */
+
+                    let user;
+
+                    objectArray.forEach(item => {
+                        if (item.name === inputName) {
+                            user = item;
+                        }
+                    });
+
+                    user; // { name: 'John', city: 'NY', age: 30 }
+
+                    if (user) {
+                        console.log(user.name + ' lives in ' + user.city);
+                    }
+
+                    /* ============ FILTER ============ */
+
+                    const filtered = objectArray.filter(item => item.name === inputName);
+
+                    filtered; // [ { name: 'John', city: 'NY', age: 30 } ]
+                    filtered[0]; // { name: 'John', city: 'NY', age: 30 }
+
+                    if (filtered.length > 0) {
+                        console.log(filtered[0].name + ' lives in ' + filtered[0].city);
+                    }
+
+
+
+
+
+
+
+
+
+
+                    //------Fetch---//
+                    const pokemon = 'https://pokeapi.com/api//v2/pokemon/';
+                    // fetch('https://supercode-auth-demo.herokuapp.com/')
+                    const url = 'https://supercode-auth-demo.herokuapp.com/'
+                        // fetch('https://pokeapi.com/api//v2/pokemon/')
+                    fetch(pokemon)
+                        .then(response => response.json())
+                        .then(data => {
+                            let element = document.getElementById('result')
+                            element.innerHTML += `
+                <p>${data.name}</p>
+                <p>${'hola wena'}</p>
+                <img src='${data.sprites.front_default}'/>`;
+                            console.log(data)
+                        })
+                        .catch(error => console.log(error))
     </script>
 </body>
 
-</html>
+</html> -->
