@@ -84,8 +84,8 @@ buttonSubmit.addEventListener('click', (e) => {
 document.getElementById('verTodas').addEventListener('click', seeAll);
 
 ///---createCookie---///
-document.getElementById('crearCookie1').addEventListener('click', createCookie);
-document.getElementById('crearCookie2').addEventListener('click', createCookie);
+document.getElementById('btn-primary').addEventListener('click', createCookie);
+
 
 ///---LOG-OUT---///
 document.getElementById('logout').addEventListener('click', deleteCookie);
@@ -99,7 +99,7 @@ function seeAll() {
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000) + 3);
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
@@ -107,7 +107,7 @@ function setCookie(cname, cvalue, exdays) {
 function createCookie(e) {
     e.preventDefault()
     setCookie('user', inputAdmin.value)
-    console.log('createCookie', inputAdmin.value)
+    console.log('', inputAdmin.value)
 
 }
 
@@ -115,7 +115,7 @@ function deleteCookie(e) {
 
     document.cookie = 'user = ;expires=Thu,01 Jan 1970 00:00:00 UTC;';
 
-    console.log('deleteCookie');
+    console.log('logout', deleteCookie);
 }
 
 // function saveTheCookie(value) {
