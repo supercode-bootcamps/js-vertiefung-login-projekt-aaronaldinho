@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,131 +6,132 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            background: #20262E;
+            padding: 20px;
+            font-family: Helvetica;
+        }
+        
+        #banner-message {
+            background: #fff;
+            border-radius: 4px;
+            padding: 20px;
+            font-size: 25px;
+            text-align: center;
+            transition: all 0.2s;
+            margin: 0 auto;
+            width: 500px;
+        }
+        
+        #breed_data {
+            background: #fff;
+            border-radius: 4px;
+            padding: 20px;
+            font-size: 12px;
+            text-align: left;
+            transition: all 0.2s;
+            margin: 0 auto;
+            width: 500px;
+        }
+        
+        #breed_image {
+            background: #fff;
+            margin: 0 auto;
+            width: 460px;
+        }
+    </style>
 </head>
 
 <body>
-    <div>Hola</div>
-    <button id="button">press</button>
-    <input type="text" id="inputadmin"> //*---.value---*//
-    <input type="text" id="inputcity"> //*---.value---*//
-    <p id="result"></p>
+    <div id="id"></div>
+    <div id="url"></div>
+    <div id="image"></div>
 
-    <article>
-        <form>
-            <input type="text" value="Enter Your Nickname" id="nameBox" name='usrname'>
-            <input type="text" value="" id="nameBox2" name='usrname2'>
-            <input type="button" value="Go!" id="submit" onclick="putCookie(document.getElementsByTagName('form'));">
-        </form>
-    </article>
-    <script>
-        ///---form_for_cookie----////
-        var today = new Date();
-        var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
+    <h1>hola</h1>
 
-        function setCookie(name, value) {
-            document.cookie = name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+    <div id="title"></div>
+    <div id="title2"></div>
+
+    <ul id="myList">
+        <li>Apple</li>
+    </ul>
+
+    <script type="text/javascript">
+        ////----createElement---///
+
+        let creaUnButton = document.createElement('button')
+        document.body.appendChild(creaUnButton);
+        creaUnButton.innerHTML = `<h1>hola donde etas hijo de la grandisimaå</h1> 
+        <br> kajsjkdaksjdkajs <br> <h2> tittle H2 </h2>`
+
+        //--Input--//
+        let creaUnInput = document.createElement('input')
+        document.body.appendChild(creaUnInput);
+        creaUnInput.innertext = `<li>Que haces?</li>`
+
+
+        let creaUnDiv = document.createElement('div')
+
+
+        ///----Set Atributte ---///
+        const otherElement = document.createElement('div')
+        otherElement.setAttribute('class', 'container')
+
+        document.body.appendChild(otherElement);
+        otherElement.style = 'width: 100%; height: 200px; background-color: red;'
+
+        console.log(otherElement)
+
+        ///--------//////
+        const array = [{
+            name: 'Aron',
+            age: 12,
+            info: true,
+        }];
+
+        const h2Titles = document.getElementById('title');
+        const h2Titles2 = document.getElementById('title2');
+        // alert(h2Titles.textContent);//con textContent no funciona, mejor con InnerHTML//
+        h2Titles2.textContent = '<em> Mangos y Bananas </em>';
+        h2Titles.innerHTML = `${array.name}`;
+        console.log()
+        console.log(h2Titles)
+        console.log(h2Titles2)
+
+
+        ////------AppendChild-----///
+
+        const myList = document.getElementById('myList');
+        //--parentElement--//
+        const fruitList = ['Pera', 'Uva', 'Orange', 'Sandia'];
+
+        ////---new List Element [<li> Banana </li>]--///
+        for (let fruit of fruitList) {
+            let newElementList = document.createElement('li')
+            newElementList.innerHTML = fruit;
+
+            myList.appendChild(newElementList);
         }
-        const buttonSubCookies = document.querySelector('.btn-primary');
-        buttonSubCookies.addEventListener('click', (e) => {
-                    e.preventDefault();
 
-                    function putCookie(form)
-                    //this should set the UserName cookie to the proper value;
-                    {
-                        setCookie("userName", form[0].usrname.value && 'userName2', form[1].usrname2.value);
+        ///--documentFragments----///
 
-                        return true;
-                    }
+        let buttonDoggo = document.querySelector('#btnDoggo');
 
+        var key = 'a5a29af9-9fb9-4432-8528-a510f5ff80b9';
 
-                    let showError = document.createElement('div');
-                    showError.id = '#item';
-                    // 
-                    // hiddenForm.style.cssText = 'display: flex; justify-content: center; align-items: center'
-                    // hiddenForm.setAttribute('style', 'color:yellow;')
+        const fetchDoggoBreeds = () => {
 
-                    const objectArray = [{
-                        name: 'John',
-                        city: 'NY',
-                        age: 30,
-                    }, {
-                        name: 'Jane',
-                        city: 'Berlin',
-                        age: 30,
-                    }];
+            const data = fetch('https://api.TheDogAPI.com/v1/breeds')
+                .then(data => data.json())
+                .then(doggos => console.log(doggos))
+                .catch(e => console.error('promised was rejected', e));
 
 
 
-                    const inputName = document.getElementById('inputadmin');
-                    const inputCity = document.getElementById('inputcity');
-
-                    const buttonSubmit = document.getElementById('button');
-                    buttonSubmit.addEventListener('click', (e) => {
-                        e.preventDefault();
-
-                        let foundUser = objectArray.find(all => all.name === inputName.value && all.city === inputCity.value); // { name: 'John', city: 'NY', age: 30 }
-                        console.log(foundUser.name + ' lives in ' + foundUser.city);
-
-                    })
-
-                    // if (foundUser === item.name.value && foundUser === item.city.value && foundUser === item.age.value) {
-                    //     document.style.display = 'none';
-                    // }
-
-
-                    /* ============ FOR EACH ============ */
-
-                    let user;
-
-                    objectArray.forEach(item => {
-                        if (item.name === inputName) {
-                            user = item;
-                        }
-                    });
-
-                    user; // { name: 'John', city: 'NY', age: 30 }
-
-                    if (user) {
-                        console.log(user.name + ' lives in ' + user.city);
-                    }
-
-                    /* ============ FILTER ============ */
-
-                    const filtered = objectArray.filter(item => item.name === inputName);
-
-                    filtered; // [ { name: 'John', city: 'NY', age: 30 } ]
-                    filtered[0]; // { name: 'John', city: 'NY', age: 30 }
-
-                    if (filtered.length > 0) {
-                        console.log(filtered[0].name + ' lives in ' + filtered[0].city);
-                    }
-
-
-
-
-
-
-
-
-
-
-                    //------Fetch---//
-                    const pokemon = 'https://pokeapi.com/api//v2/pokemon/';
-                    // fetch('https://supercode-auth-demo.herokuapp.com/')
-                    const url = 'https://supercode-auth-demo.herokuapp.com/'
-                        // fetch('https://pokeapi.com/api//v2/pokemon/')
-                    fetch(pokemon)
-                        .then(response => response.json())
-                        .then(data => {
-                            let element = document.getElementById('result')
-                            element.innerHTML += `
-                <p>${data.name}</p>
-                <p>${'hola wena'}</p>
-                <img src='${data.sprites.front_default}'/>`;
-                            console.log(data)
-                        })
-                        .catch(error => console.log(error))
+        }
+        fetchDoggoBreeds();
     </script>
 </body>
 
-</html> -->
+</html>

@@ -24,8 +24,11 @@ const inputPassword = document.getElementById('exampleInputPassword1')
 const cookieValue = document.hiddenForm + ';';
 console.log(cookieValue)
     // const inputColor = document.getElementById('exampleInputColor')
+let appear = document.getElementById('hidden')
+appear.style.filter = blur(0)
 
 let hiddenForm = document.getElementById("hidden");
+let appearForm = document.getElementById('appear')
 
 const buttonSubmit = document.getElementById('btn-primary');
 buttonSubmit.addEventListener('click', (e) => {
@@ -36,8 +39,13 @@ buttonSubmit.addEventListener('click', (e) => {
 
     if (foundUser) {
         hiddenForm.style.visibility = 'hidden';
+        appearForm.innerHTML = 'good'
+
     } else {
-        hiddenForm.style.color = 'red';
+        let hiddenForm = document.getElementById("hidden");
+        let newElement = document.createElement('p');
+        document.innerHTML.appendChild(newElement);
+        newElement.style.color = 'red';
 
     }
     if (!foundUser) {
@@ -50,10 +58,13 @@ buttonSubmit.addEventListener('click', (e) => {
     if (foundUser == null || foundUser == "") {
         alert("Please enter the password.");
     }
-    // if (foundUser == null || foundUser == "") {
-    //     alert("Please enter the favorite color.");
-    // }
+
+    var contenido = document.querySelector('#contenido')
+    buttonSubmit.addEventListener('click', buttonSubmit)
+    contenido.innerHTML = ` User:<h5>${foundUser.name}</h5>`;
+    console.log(buttonSubmit)
 });
+
 
 
 
@@ -70,8 +81,6 @@ buttonSubmit.addEventListener('click', (e) => {
 //     }
 // })
 
-
-
 // const filtered = USERS.filter(item => {
 //     item.name === inputAdmin
 //     if (filtered.length > 0) {
@@ -81,15 +90,10 @@ buttonSubmit.addEventListener('click', (e) => {
 
 ///--- cookies ---///
 
-document.getElementById('verTodas').addEventListener('click', seeAll);
+// document.getElementById('verTodas').addEventListener('click', seeAll);
 
 ///---createCookie---///
 document.getElementById('btn-primary').addEventListener('click', createCookie);
-
-
-///---LOG-OUT---///
-document.getElementById('logout').addEventListener('click', deleteCookie);
-document.getElementById('logout').addEventListener('click', deleteCookie);
 
 
 function seeAll() {
@@ -110,21 +114,11 @@ function createCookie(e) {
     console.log('', inputAdmin.value)
 
 }
+//---LOG-OUT---///
+document.getElementById('logout').addEventListener('click', deleteCookie);
 
-function deleteCookie(e) {
-
+function deleteCookie() {
     document.cookie = 'user = ;expires=Thu,01 Jan 1970 00:00:00 UTC;';
-
-    console.log('logout', deleteCookie);
 }
 
-// function saveTheCookie(value) {
-//     var today = new Date(); // Actual date
-//     var expire = new Date(); // Expiration of the cookie
-
-//     var cookie_name = "username_form"; // Name for the cookie to be recognized
-//     var number_of_days = 10; // Number of days for the cookie to be valid (10 in this case)
-
-//     expire.setTime(today.getTime() + 60 * 60 * 1000 * 24 * number_of_days); // Current time + (60 sec * 60 min * 1000 milisecs * 24 hours * number_of_days)
-
-//     document.cookie = cookie_name + "=" + escape(value) + "; expires=" + expire.toGMTString();
+///---api-doggos////////////////////////////////

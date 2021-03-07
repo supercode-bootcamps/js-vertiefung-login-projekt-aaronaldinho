@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projekt Name</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <!-- Image and text -->
 
@@ -20,9 +20,11 @@
             <div>
                 <p hidden></p>
             </div>
+
             <div>
-                <h5>user </h5>
+                <h5 id="contenido"></h5>
             </div>
+            <br>
 
             <div>
                 <a type="button" id="logout" onclick="deleteCookie()" href=""> >log out.</a>
@@ -36,7 +38,7 @@
         <div id="right-article">
             <h2>Top Secret</h2>
             <p>You may not click the button</p>
-            <button>>Secret Content</button>
+            <button id='btn-doggo' onclick="showDoggos()">>Secret Content</button>
         </div>
     </article>
 
@@ -57,12 +59,15 @@
         </div> -->
 
         <button type="submit" id="btn-primary">Submit</button>
+        <p id="appear"></p>
     </form>
 
-    <div id="div-cookies">
-        <button type="button" id="verTodas">Ver todas las cookies</button>
+    <!-- <div id="div-doggo">
+        <img src="" id="img-doggo" alt="">
+        <button type="button" id="click-doggo">Click your doggo</button>
+    </div> -->
 
-        <button type="button" id="borrarCookie1">Borrar cookie 1</button>
+
     </div>
     <script src=" assets/js/main.js "></script>
     <!-- <div class=" info ">
